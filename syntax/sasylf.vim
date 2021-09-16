@@ -6,7 +6,7 @@ elseif exists("b:current_syntax")
 endif
 
 
-syn keyword slfPuncuation "." ":"
+syn keyword slfPuncuation \( \) ::= := \|
 
 syn keyword slfSection terminals syntax judgment
 syn keyword slfProofUnfinished unproved
@@ -26,8 +26,7 @@ syn match slfLongName "\a\+\(-\(\a\)\+\)\+" contained
 syn region slfTheorem start=/theorem/ end=/:/me=s-1 contains=@slfComments,slfLongName
 syn region slfLemma start=/lemma/ end=/:/me=s-1 contains=@slfComments,slfLongName
 syn region slfEnd start=/end/ end=/$/ contains=@slfComments
-
-
+syn region slfProofByLine start=/proof by/ end=/:/me=s-1 contains=@slfComments
 
 syn cluster slfComments contains=slfShortComment,slfLongComment
 syn keyword slfTodo contained TODO FIXME NOTE
@@ -45,7 +44,8 @@ hi def link slfRule Keyword
 hi def link slfLongName Function
 hi def link slfTheorem Keyword
 hi def link slfLemma Keyword
-hi def link slfPuncuation Delimiter
+hi def link slfPuncuation Comment
 hi def link slfEnd Keyword
+hi def link slfProofByLine Keyword
 
 let b:current_syntax = "slf"
