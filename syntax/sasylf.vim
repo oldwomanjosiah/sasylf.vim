@@ -21,7 +21,7 @@ syn match slfBindingName "\a\+\d*'*"
 syn region slfShortComment start=/\/\// end=/$/ oneline contains=slfTodo
 syn region slfLongComment start=/\/\*/ end=/\*\// contains=slfTodo
 
-syn match slfLongName "\a\+(-(\a)\+)*" contained
+syn match slfLongName "\a\+(-(\a)\+)*"
 
 syn region slfTheorem start=/theorem/ end=/:/me=s-1 contains=@slfComments,slfLongName
 syn region slfLemma start=/lemma/ end=/:/me=s-1 contains=@slfComments,slfLongName
