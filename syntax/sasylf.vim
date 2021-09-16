@@ -6,7 +6,7 @@ elseif exists("b:current_syntax")
 endif
 
 
-syn match slfPuncuation "\\(|\\)|::=|:=|\|"
+syn match slfPuncuation /\\(|\\)|::=|:=|\|/
 
 syn keyword slfSection terminals syntax judgment
 syn keyword slfProofUnfinished unproved
@@ -16,7 +16,7 @@ syn keyword slfProofKeyword proof
 syn keyword slfCaseIsInner case is rule contained
 syn region slfCaseIs start=/case/ end=/is/ contains=@slfComments,slfCaseIsInner
 
-syn match slfBindingName "\a\+\d*'*"
+" syn match slfBindingName "\a\+\d*'*"
 syn region slfShortComment start=/\/\// end=/$/ oneline contains=slfTodo
 syn region slfLongComment start=/\/\*/ end=/\*\// contains=slfTodo
 
