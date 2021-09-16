@@ -5,7 +5,6 @@ elseif exists("b:current_syntax")
     finish
 endif
 
-syn keyword slfTodo contained TODO FIXME NOTE
 
 syn keyword slfPuncuation "." ":"
 
@@ -19,14 +18,16 @@ syn keyword slfEnd end
 syn keyword slfConnecting by on is
 
 syn match slfBindingName "\a\+\d*'*"
-syn match slfLongName "\w\+(-(\w)\+)*" contained
 syn region slfShortComment start=/\/\// end=/$/ oneline contains=slfTodo
 syn region slfLongComment start=/\/\*/ end=/\*\// contains=slfTodo
 
 syn region slfTheorem start=/theorem/ end=/:/me=s-1 contains=@slfComments,slfLongName
 syn region slfLemma start=/lemma/ end=/:/me=s-1 contains=@slfComments,slfLongName
 
+syn match slfLongName "\w\+(-(\w)\+)*" contained
+
 syn cluster slfComments contains=slfShortComment,slfLongComment
+syn keyword slfTodo contained TODO FIXME NOTE
 
 syn region slfRule start=/---/ end=/$/ oneline contains=@slfComments,slfLongName
 
@@ -40,8 +41,8 @@ hi def link slfLemma Keyword
 hi def link slfProofHeader Special
 hi def link slfProofBody Special
 hi def link slfRule Keyword
-hi def link slfLongName Identifier
-hi def link slfBindingName Function
+hi def link slfLongName Function
+hi def link slfBindingName Identifier
 hi def link slfPuncuation Delimiter
 
 let b:current_syntax = "slf"
