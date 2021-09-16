@@ -22,8 +22,9 @@ syn region slfShortComment start=/\/\// end=/$/ oneline contains=slfTodo
 syn region slfLongComment start=/\/\*/ end=/\*\// contains=slfTodo
 syn match slfBindingName "\w+\d*'*"
 
-syn match slfRuleBar "---+"
-syn cluster slfRule contains=slfRuleBar,slfLongName
+syn cluster slfComments contains=slfShortComment,slfLongComment
+
+syn region slfRule start=/---+/ end=/$/ oneline contains=slfComments
 
 hi def link slfTodo Todo
 hi def link slfProofUnfinished Todo
@@ -35,7 +36,7 @@ hi def link slfProof Keyword
 hi def link slfProofHeader Keyword
 hi def link slfProofBody Keyword
 hi def link slfConnecting Comment
-hi def link @slfRule Keyword
+hi def link slfRule Keyword
 hi def link slfRuleName Identifier
 hi def link slfPuncuation Delimiter
 
