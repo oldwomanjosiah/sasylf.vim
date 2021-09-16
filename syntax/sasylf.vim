@@ -22,7 +22,7 @@ syn match slfLongName "\a\+\(-\(\a\)\+\)\+" contained
 syn region slfTheorem start=/theorem/ end=/:/me=s-1 contains=@slfComments,slfLongName oneline
 syn region slfLemma start=/lemma/ end=/:/me=s-1 contains=@slfComments,slfLongName oneline
 syn region slfEnd start=/end/ end=/$/ contains=@slfComments oneline
-syn region slfByLine start=/by/ end=/\(on|$\)/ contains=@slfComments,slfLongName oneline
+syn region slfByLine start=/by/ end=/\(on\|$\)/ contains=@slfComments,slfLongName oneline
 
 syn keyword slfCaseIsInner case is contained
 syn region slfCaseIs start=/case/ end=/is/ contains=@slfComments,slfCaseIsInner
