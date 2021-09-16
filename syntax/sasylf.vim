@@ -24,7 +24,7 @@ syn match slfBindingName "\w+\d*'*"
 
 syn cluster slfComments contains=slfShortComment,slfLongComment
 
-syn region slfRule start=/---/ end=/$/ oneline contains=@slfComments
+syn region slfRule start=/---/ end=/$/ oneline contains=@slfComments,slfLongName
 
 hi def link slfTodo Todo
 hi def link slfProofUnfinished Todo
@@ -33,11 +33,11 @@ hi def link slfShortComment Comment
 hi def link slfLongComment Comment
 hi def link slfSection Keyword
 hi def link slfProof Keyword
-hi def link slfProofHeader Keyword
-hi def link slfProofBody Keyword
+hi def link slfProofHeader Special
+hi def link slfProofBody Special
 hi def link slfConnecting Comment
 hi def link slfRule Keyword
-hi def link slfRuleName Identifier
+hi def link slfRuleName Type
 hi def link slfPuncuation Delimiter
 
 let b:current_syntax = "slf"
