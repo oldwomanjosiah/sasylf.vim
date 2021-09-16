@@ -21,7 +21,7 @@ syn match slfBindingName "\a\+\d*'*"
 syn region slfShortComment start=/\/\// end=/$/ oneline contains=slfTodo
 syn region slfLongComment start=/\/\*/ end=/\*\// contains=slfTodo
 
-syn match slfLongName "\a\+(-(\a)\+)*"
+syn match slfLongName "\a\+\(-\(\a\)\+\)*"
 
 syn region slfTheorem start=/theorem/ end=/:/me=s-1 contains=@slfComments,slfLongName
 syn region slfLemma start=/lemma/ end=/:/me=s-1 contains=@slfComments,slfLongName
@@ -39,12 +39,12 @@ hi def link slfShortComment Comment
 hi def link slfLongComment Comment
 hi def link slfSection Keyword
 hi def link slfTheorem Keyword
-hi def link slfEnd Keyword
 hi def link slfLemma Keyword
 hi def link slfProofHeader Special
 hi def link slfProofBody Special
 hi def link slfRule Keyword
 hi def link slfLongName Function
 hi def link slfPuncuation Delimiter
+hi def link slfEnd Keyword
 
 let b:current_syntax = "slf"
