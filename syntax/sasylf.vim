@@ -6,7 +6,7 @@ elseif exists("b:current_syntax")
 endif
 
 
-syn match slfPuncuation /\\(|\\)|::=|:=|\|/
+syn match slfPuncuation /(\|)\|::=\|:=\||/
 
 syn keyword slfSection terminals syntax judgment
 syn keyword slfProofUnfinished unproved
