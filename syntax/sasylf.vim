@@ -16,15 +16,14 @@ syn keyword slfProofHeader forall exists
 syn keyword slfProofBody induction case end
 syn keyword slfConnecting by on is
 
-
-syn match slfLongName "\w+(-(\w)+)*"
-syn region slfShortComment start=/\/\// end=/$/ oneline contains=slfTodo transparent
-syn region slfLongComment start=/\/\*/ end=/\*\// contains=slfTodo transparent
-syn match slfBindingName "\w+\d*'*"
+syn match slfBindingName "\w\+\d*'*"
+syn match slfLongName "\w\+(-(\w)\+)*"
+syn region slfShortComment start=/\/\// end=/$/ oneline contains=slfTodo
+syn region slfLongComment start=/\/\*/ end=/\*\// contains=slfTodo
 
 syn cluster slfComments contains=slfShortComment,slfLongComment
 
-syn region slfRule start=/---/ end=/$/ oneline contains=@slfComments,slfLongName transparent
+syn region slfRule start=/---/ end=/$/ oneline contains=@slfComments,slfLongName
 
 hi def link slfTodo Todo
 hi def link slfProofUnfinished Todo
@@ -35,7 +34,8 @@ hi def link slfProof Keyword
 hi def link slfProofHeader Special
 hi def link slfProofBody Special
 hi def link slfRule Keyword
-hi def link slfLongName Function
+hi def link slfLongName Identifier
+hi def link slfBindingName Function
 hi def link slfPuncuation Delimiter
 
 let b:current_syntax = "slf"
