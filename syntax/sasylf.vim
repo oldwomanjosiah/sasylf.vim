@@ -26,7 +26,7 @@ syn match slfLongName "\a\+\(-\(\a\)\+\)\+" contained
 syn region slfTheorem start=/theorem/ end=/:/me=s-1 contains=@slfComments,slfLongName
 syn region slfLemma start=/lemma/ end=/:/me=s-1 contains=@slfComments,slfLongName
 syn region slfEnd start=/end/ end=/$/ contains=@slfComments
-syn region slfProofByLine start=/proof by/ end=/:/me=s-1 contains=@slfComments
+syn region slfProofByLine start=/proof by/ end=/\($|:\)/me=s-1 contains=@slfComments
 
 syn cluster slfComments contains=slfShortComment,slfLongComment
 syn keyword slfTodo contained TODO FIXME NOTE
