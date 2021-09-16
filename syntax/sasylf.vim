@@ -18,7 +18,7 @@ syn keyword slfConnecting by on is
 
 
 syn match slfLongName "\w+(-(\w)+)*"
-syn region slfShortComment start=/\/\// oneline contains=slfTodo
+syn region slfShortComment start=/\/\// end=/$/ oneline contains=slfTodo
 syn region slfLongComment start=/\/\*/ end=/\*\// contains=slfTodo
 syn match slfBindingName "\w+\d*'*"
 
