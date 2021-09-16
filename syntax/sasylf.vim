@@ -24,7 +24,7 @@ syn match slfBindingName "\w+\d*'*"
 
 syn cluster slfComments contains=slfShortComment,slfLongComment
 
-syn region slfRule start=/---+/ end=/$/ oneline contains=slfComments
+syn region slfRule start=/---/ end=/$/ oneline contains=@slfComments
 
 hi def link slfTodo Todo
 hi def link slfProofUnfinished Todo
