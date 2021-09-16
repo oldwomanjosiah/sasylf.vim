@@ -5,7 +5,7 @@ elseif exists("b:current_syntax")
     finish
 endif
 
-syn keyword slfTodo contained TODO FIXME NOTE
+syn keyword slfTodo TODO FIXME NOTE contained
 
 syn keyword slfPuncuation "." ":"
 
@@ -27,7 +27,7 @@ syn cluster slfRule contains=slfRuleBar,slfLongName
 
 hi def link slfTodo Todo
 hi def link slfProofUnfinished Todo
-hi def link slfLongName Normal
+hi def link slfLongName Type
 hi def link slfShortComment Comment
 hi def link slfLongComment Comment
 hi def link slfSection Keyword
@@ -35,7 +35,7 @@ hi def link slfProof Keyword
 hi def link slfProofHeader Keyword
 hi def link slfProofBody Keyword
 hi def link slfConnecting Comment
-hi def link slfRule Keyword
+hi def link @slfRule Keyword
 hi def link slfRuleName Identifier
 hi def link slfPuncuation Delimiter
 
