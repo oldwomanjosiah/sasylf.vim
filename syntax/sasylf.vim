@@ -6,7 +6,7 @@ elseif exists("b:current_syntax")
 endif
 
 
-" syn keyword slfPuncuation ( ) ::= := \|
+syn match slfPuncuation "\\(|\\)|::=|:=|\|"
 
 syn keyword slfSection terminals syntax judgment
 syn keyword slfProofUnfinished unproved
@@ -24,6 +24,9 @@ syn region slfLemma start=/lemma/ end=/:/me=s-1 contains=@slfComments,slfLongNam
 syn region slfEnd start=/end/ end=/$/ contains=@slfComments oneline
 syn region slfByLine start=/by/ end=/\(on|$\)/ contains=@slfComments,slfLongName oneline
 
+syn keyword slfCaseIsInner case is contained
+syn region slfCaseIs start=/case/ end=/is/ contains=@slfComments,slfCaseIsInner
+
 syn cluster slfComments contains=slfShortComment,slfLongComment
 syn keyword slfTodo contained TODO FIXME NOTE
 
@@ -39,9 +42,10 @@ hi def link slfRule Keyword
 hi def link slfLongName Function
 hi def link slfTheorem Keyword
 hi def link slfLemma Keyword
-" hi def link slfPuncuation Comment
+hi def link slfPuncuation Comment
 hi def link slfEnd Keyword
-hi def link slfProofByLine Keyword
+hi def link slfByLine Keyword
 hi def link slfProofKeyword Keyword
+hi def link slfCaseIsInner Keyword
 
 let b:current_syntax = "slf"
