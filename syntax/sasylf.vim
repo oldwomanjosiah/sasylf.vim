@@ -23,8 +23,8 @@ syn match slfLongName "\w\+(-(\w)\+)*" contained
 syn region slfShortComment start=/\/\// end=/$/ oneline contains=slfTodo
 syn region slfLongComment start=/\/\*/ end=/\*\// contains=slfTodo
 
-syn region slfTheorem start=/theorem/ end=/:/me=s-1 contains=@slfComments, slfLongName
-syn region slfLemma start=/lemma/ end=/:/me=s-1 contains=@slfComments, slfLongName
+syn region slfTheorem start=/theorem/ end=/:/me=s-1 contains=@slfComments,slfLongName
+syn region slfLemma start=/lemma/ end=/:/me=s-1 contains=@slfComments,slfLongName
 
 syn cluster slfComments contains=slfShortComment,slfLongComment
 
