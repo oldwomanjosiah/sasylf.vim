@@ -12,9 +12,6 @@ syn keyword slfSection terminals syntax judgment
 syn keyword slfProofUnfinished unproved
 syn keyword slfProofHeader forall exists
 syn keyword slfProofKeyword proof rule
-syn keyword slfCase case
-syn keyword slfEnd end
-syn keyword slfConnecting by on is
 
 syn match slfBindingName "\a\+\d*'*"
 syn region slfShortComment start=/\/\// end=/$/ oneline contains=slfTodo
@@ -22,10 +19,10 @@ syn region slfLongComment start=/\/\*/ end=/\*\// contains=slfTodo
 
 syn match slfLongName "\a\+\(-\(\a\)\+\)\+" contained
 
-syn region slfTheorem start=/theorem/ end=/:/me=s-1 contains=@slfComments,slfLongName
-syn region slfLemma start=/lemma/ end=/:/me=s-1 contains=@slfComments,slfLongName
-syn region slfEnd start=/end/ end=/$/ contains=@slfComments
-syn region slfByLine start=/by/ end=/\(on|$\)/ contains=@slfComments,slfLongName
+syn region slfTheorem start=/theorem/ end=/:/me=s-1 contains=@slfComments,slfLongName oneline
+syn region slfLemma start=/lemma/ end=/:/me=s-1 contains=@slfComments,slfLongName oneline
+syn region slfEnd start=/end/ end=/$/ contains=@slfComments oneline
+syn region slfByLine start=/by/ end=/\(on|$\)/ contains=@slfComments,slfLongName oneline
 
 syn cluster slfComments contains=slfShortComment,slfLongComment
 syn keyword slfTodo contained TODO FIXME NOTE
