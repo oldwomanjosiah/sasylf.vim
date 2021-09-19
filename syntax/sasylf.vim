@@ -15,7 +15,7 @@ syn keyword slfProofKeyword proof
 
 syn keyword slfCaseIsInner case is rule contained
 syn region slfCaseIs start=/\<case\>/ end=/\<is\>/ contains=@slfComments,slfCaseIsInner oneline
-syn region slfCaseRuleIs start=/\<case\s\+rule\>/ end=/\<is\>/ contains=@slfComments,slfCaseIsInner,slfLongName
+syn region slfCaseRuleIs start=/\<case\s\+rule\>/ end=/\<is\>/ contains=@slfComments,slfCaseIsInner,slfRule
 
 " syn match slfBindingName "\a\+\d*'*"
 syn region slfShortComment start=/\/\// end=/$/ oneline contains=slfTodo
@@ -26,7 +26,7 @@ syn match slfLongName "\a\+\(-\(\a\)\+\)\+" contained
 syn region slfTheorem start=/\<theorem\>/ end=/:/me=s-1 contains=@slfComments,slfLongName oneline
 syn region slfLemma start=/\<lemma\>/ end=/:/me=s-1 contains=@slfComments,slfLongName oneline
 syn region slfEnd start=/\<end\>/ end=/$/ contains=@slfComments oneline
-syn region slfByLine start=/\<by\>/ end=/\<on\>/ contains=@slfComments,slfLongName oneline
+syn region slfByLine start=/\<by\>/ end=/.\{-}\<on\>/ contains=@slfComments,slfLongName oneline
 
 
 syn cluster slfComments contains=slfShortComment,slfLongComment
