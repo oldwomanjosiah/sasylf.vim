@@ -6,17 +6,17 @@ function! SlfIndent()
 	let previous = getline(previousNum)
 	let tabstop = &tabstop
 
-	if previous =~ "::=" && line =~ "|"
+	if previous =~ "::="
 		return indent(previousNum) + tabstop + tabstop
 	endif
 
-	if previous =~ "theorem" || previous =~ "lemma" || previous =~ "case" || previous =~ ":" || previous =~ "is"
-		if line !~ "end"
+	if previous =~ "\<theorem\>" || previous =~ "\<lemma\>" || previous =~ "\<case\>" || previous =~ ":$" || previous =~ "\<is\>"
+		if line !~ "\<end\>"
 			return indent(previousNum) + tabstop
 		endif
 	endif
 
-	if previous =~ "end"
+	if previous =~ "\<end\>"
 		return indent(previousNum) - tabstop
 	endif
 
