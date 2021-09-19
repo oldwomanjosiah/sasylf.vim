@@ -14,7 +14,8 @@ syn keyword slfProofHeader forall exists
 syn keyword slfProofKeyword proof
 
 syn keyword slfCaseIsInner case is rule contained
-syn region slfCaseIs start=/case/ end=/\<is\>/ contains=@slfComments,slfCaseIsInner,slfLongName
+syn region slfCaseIs start=/\<case\>/ end=/\<is\>/ contains=@slfComments,slfCaseIsInner oneline
+syn region slfCaseRuleIs start=/\<case\s\+rule\>/ end=/\<is\>/ contains=@slfComments,slfCaseIsInner,slfLongName
 
 " syn match slfBindingName "\a\+\d*'*"
 syn region slfShortComment start=/\/\// end=/$/ oneline contains=slfTodo
